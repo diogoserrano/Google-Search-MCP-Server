@@ -1,5 +1,5 @@
 {
-  "name": "google-search-mcp",
+  "name": "google-search-mcp-test",
   "version": "0.1.0",
   "description": "MCP server for Google search and webpage analysis",
   "type": "module",
