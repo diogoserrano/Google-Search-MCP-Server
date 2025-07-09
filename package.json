@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "MCP server for Google search and webpage analysis",
   "type": "module",
+  "main": "dist/google-search.js",
+  "bin": {
+    "google-search-mcp-server": "dist/google-search.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/google-search.js",
@@ -33,5 +37,10 @@
     "@types/node": "^20.17.21",
     "concurrently": "^9.1.0",
     "typescript": "^5.7.2"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "license"
+  ]
 }
