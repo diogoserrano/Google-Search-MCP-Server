@@ -1,6 +1,6 @@
 {
-  "name": "google-search-mcp-test",
-  "version": "0.1.0",
+  "name": "@dserrano25/google-search-mcp-test",
+  "version": "1.0.5",
   "description": "MCP server for Google search and webpage analysis",
   "type": "module",
   "main": "dist/google-search.js",
