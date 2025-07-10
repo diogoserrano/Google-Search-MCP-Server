@@ -5,11 +5,13 @@ import { JSDOM } from 'jsdom';
 import MarkdownIt from 'markdown-it';
 import TurndownService from 'turndown';
 export class ContentExtractor {
+    md;
+    turndownService;
+    // Cache for webpage content (key: url + format, value: content)
+    contentCache = new Map();
+    // Cache expiration time in milliseconds (30 minutes)
+    cacheTTL = 30 * 60 * 1000;
     constructor() {
-        // Cache for webpage content (key: url + format, value: content)
-        this.contentCache = new Map();
-        // Cache expiration time in milliseconds (30 minutes)
-        this.cacheTTL = 30 * 60 * 1000;
         this.md = new MarkdownIt();
         this.turndownService = new TurndownService({
             headingStyle: 'atx',

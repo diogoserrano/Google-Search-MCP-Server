@@ -1,11 +1,13 @@
 import { google } from 'googleapis';
 import { URL } from 'url';
 export class GoogleSearchService {
+    // Cache for search results (key: query string + filters, value: results)
+    searchCache = new Map();
+    // Cache expiration time in milliseconds (5 minutes)
+    cacheTTL = 5 * 60 * 1000;
+    customSearch;
+    searchEngineId;
     constructor() {
-        // Cache for search results (key: query string + filters, value: results)
-        this.searchCache = new Map();
-        // Cache expiration time in milliseconds (5 minutes)
-        this.cacheTTL = 5 * 60 * 1000;
         const apiKey = process.env.GOOGLE_API_KEY;
         const searchEngineId = process.env.GOOGLE_SEARCH_ENGINE_ID;
         if (!apiKey || !searchEngineId) {

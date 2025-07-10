@@ -1,9 +1,13 @@
+#!/usr/bin/env node
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
 import { GoogleSearchService } from './services/google-search.service.js';
 import { ContentExtractor } from './services/content-extractor.service.js';
 class GoogleSearchServer {
+    server;
+    searchService;
+    contentExtractor;
     constructor() {
         this.searchService = new GoogleSearchService();
         this.contentExtractor = new ContentExtractor();

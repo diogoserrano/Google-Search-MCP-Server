@@ -1,46 +1,61 @@
 {
   "name": "google-search-mcp-test",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "MCP server for Google search and webpage analysis",
   "type": "module",
   "main": "dist/google-search.js",
   "bin": {
-    "google-search-mcp-server": "dist/google-search.js"
+    "google-search-mcp": "dist/google-search.js"
   },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "google-search",
+    "ai",
+    "llm",
+    "search"
+  ],
+  "author": "dserrano <diogoserrano1989@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diogoserrano/google-search-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diogoserrano/google-search-mcp-server/issues"
+  },
+  "homepage": "https://github.com/diogoserrano/google-search-mcp-server#readme",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc && chmod +x dist/google-search.js",
     "start": "node dist/google-search.js",
-    "dev": "tsc -w",
-    "start:python": "concurrently \"python google_search.py\" \"python link_view.py\"",
-    "start:all": "concurrently \"npm run start:python\" \"npm run start\""
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.1",
     "@mozilla/readability": "^0.6.0",
-    "@types/turndown": "^5.0.5",
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
     "dompurify": "^3.2.3",
-    "express": "^4.21.2",
     "googleapis": "^144.0.0",
     "jsdom": "^25.0.1",
     "markdown-it": "^14.1.0",
-    "readability": "^0.1.0",
     "turndown": "^7.2.0"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.35",
     "@types/dompurify": "^3.0.5",
-    "@types/express": "^4.17.21",
     "@types/jsdom": "^21.1.7",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^20.17.21",
-    "concurrently": "^9.1.0",
+    "@types/turndown": "^5.0.5",
     "typescript": "^5.7.2"
   },
-  "files": [
-    "dist",
-    "README.md",
-    "license"
-  ]
+  "engines": {
+    "node": ">=16.0.0"
+  }
 }
